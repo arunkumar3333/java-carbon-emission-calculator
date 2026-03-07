@@ -8,11 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet("/user/register")
+
+@WebServlet("/user") //the request goes to UserController.
 public class UserController extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+    response.setContentType("text/plain");
+
+    String action = request.getParameter("action");
+    System.out.println("Action received: " + action);
+
+    UserRepository repo = new UserRepository();
+
+    if ("register".equals(action)) {
 
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -25,9 +35,32 @@ public class UserController extends HttpServlet {
         user.setPassword(password);
         user.setCountry(country);
 
-        UserRepository repo = new UserRepository();
-        repo.saveUser(user);
+       
+        
+        boolean saved = repo.saveUser(user);
 
-        response.getWriter().println("User Registered Successfully");
+        if(saved){
+            response.getWriter().println("User Registered Successfully");
+        }else{
+            response.getWriter().println("Registration Failed");
+        }
+    }
+
+    else if ("login".equals(action)) {
+
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        boolean result = repo.loginUser(email, password);
+
+        if(result){
+            response.getWriter().println("Login Success");
+        }else{
+            response.getWriter().println("Invalid Credentials");
+        }
     }
 }
+}
+
+
+

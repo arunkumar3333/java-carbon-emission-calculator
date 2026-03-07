@@ -4,17 +4,26 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="carbon_record")
+@Table(name = "carbon_record")
 public class CarbonRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_id")
     private Long userId;
+
+    @Column(name = "activity_id")
     private Long activityId;
+
+    @Column(name = "emission_factor")
     private double emissionFactor;
+
+    @Column(name = "co2_emission")
     private double co2Emission;
+
+    @Column(name = "calculation_date")
     private LocalDate calculationDate;
 
     public Long getId() {

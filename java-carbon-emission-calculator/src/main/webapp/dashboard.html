@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="carbonApp">
+
+<head>
+<title>Carbon Emission Dashboard</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="app.js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body ng-controller="DashboardController">
+
+<h2>Carbon Footprint Dashboard</h2>
+
+<hr>
+
+<h3>Upload Excel File</h3>
+
+<input type="file" file-model="excelFile">
+
+<br><br>
+
+<button ng-click="uploadExcel()">Calculate Carbon Emission</button>
+
+<p>{{result}}</p>
+
+
+
+</body>
+</html>

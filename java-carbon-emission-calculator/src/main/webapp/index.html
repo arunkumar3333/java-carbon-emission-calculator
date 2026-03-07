@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="carbonApp">
+
+<head>
+    < title>Java Carbon Emission Calculator</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Java Carbon Emission Calculator</h1>
+
+<div class="container">
+
+    
+    <a href="/java-carbon-emission-calculator/login.html">Login</a>
+<a href="/java-carbon-emission-calculator/register.html">Register</a>
+
+    <h3>Upload Travel Excel File</h3>
+
+    <input type="file" id="excelFile">
+
+    <br><br>
+
+    <button onclick="uploadExcel()">Upload Excel</button>
+
+    <h3 id="result"></h3>
+
+</div>
+
+<script>
+
+function uploadExcel(){
+
+    var file = document.getElementById("excelFile").files[0];
+
+    var formData = new FormData();
+
+    formData.append("file", file);
+
+    fetch("uploadExcel",{
+        method:"POST",
+        body:formData
+    })
+    .then(response => response.text())
+    .then(data=>{
+        document.getElementById("result").innerText=data;
+    });
+
+}
+
+</script>
+
+</body>
+</html>

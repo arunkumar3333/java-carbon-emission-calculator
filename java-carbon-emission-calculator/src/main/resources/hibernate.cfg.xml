@@ -6,6 +6,7 @@
 
         <!-- MySQL Driver -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        
 
         <!-- Database URL -->
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/carbon_tracker</property>
@@ -30,3 +31,5 @@
     </session-factory>
 
 </hibernate-configuration>
+
+
