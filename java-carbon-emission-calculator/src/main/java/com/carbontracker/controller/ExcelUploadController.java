@@ -1,19 +1,3 @@
-package com.carbontracker.controller;
-import com.carbontracker.entity.Activity;
-//import com.carbontracker.entity.TravelActivity;
-import com.carbontracker.entity.CarbonRecord;
-import com.carbontracker.repository.ActivityRepository;
-import com.carbontracker.repository.CarbonRepository;
-import com.carbontracker.service.CarbonCalculatorService;
-import com.carbontracker.util.ExcelReaderUtil;
-
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import java.io.InputStream;
-import java.time.LocalDate;
-import java.util.List;
-
 @WebServlet("/uploadExcel")
 @MultipartConfig
 public class ExcelUploadController extends HttpServlet {
@@ -23,6 +7,9 @@ public class ExcelUploadController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
         try {
+
+            response.setContentType("text/plain");
+
             Part filePart = request.getPart("file");
             InputStream inputStream = filePart.getInputStream();
 
@@ -33,6 +20,9 @@ public class ExcelUploadController extends HttpServlet {
 
             double totalCarbon = 0;
 
+            /* ONE batchId per CSV */
+            Long batchId = System.currentTimeMillis();
+
             for (String[] row : rows) {
 
                 String fromCity = row[0];
@@ -42,7 +32,6 @@ public class ExcelUploadController extends HttpServlet {
                 double km = Double.parseDouble(row[4]);
                 double time = Double.parseDouble(row[5]);
 
-               // TravelActivity activity = new TravelActivity();
                 Activity activity = new Activity();
 
                 activity.setUserId(1L);
@@ -69,16 +58,17 @@ public class ExcelUploadController extends HttpServlet {
                 record.setEmissionFactor(factor);
                 record.setCo2Emission(co2);
                 record.setCalculationDate(LocalDate.now());
+                record.setBatchId(batchId);
 
                 carbonRepo.saveCarbonRecord(record);
             }
 
+            inputStream.close();
+
             response.getWriter().println("Total Carbon Emission = " + totalCarbon + " kg CO2");
 
         } catch (Exception e) {
-
             e.printStackTrace();
-
         }
     }
 }

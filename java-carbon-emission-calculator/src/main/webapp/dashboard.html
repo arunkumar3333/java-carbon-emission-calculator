@@ -10,8 +10,7 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
-
-<body ng-controller="DashboardController">
+<body ng-app="carbonApp" ng-controller="DashboardController" ng-init="loadCategoryEmission()">
 
 <h2>Carbon Footprint Dashboard</h2>
 
@@ -28,6 +27,23 @@
 <p>{{result}}</p>
 
 
+<body ng-controller="DashboardController" ng-init="loadCategoryEmission()">
 
+<h3>Category Wise Carbon Emission</h3>
+
+<table border="1">
+<tr>
+<th>Vehicle Type</th>
+<th>Total CO2</th>
+</tr>
+
+<tr ng-repeat="c in categoryData">
+<td>{{c.vehicle}}</td>
+<td>{{c.emission}}</td>
+</tr>
+
+</table>
+
+</body>
 </body>
 </html>

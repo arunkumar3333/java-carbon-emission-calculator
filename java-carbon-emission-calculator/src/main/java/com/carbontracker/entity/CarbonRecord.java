@@ -11,6 +11,9 @@ public class CarbonRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "batch_id")
+    private Long batchId;
+
     @Column(name = "user_id")
     private Long userId;
 
@@ -26,8 +29,19 @@ public class CarbonRecord {
     @Column(name = "calculation_date")
     private LocalDate calculationDate;
 
+
+    /* ---------------- GETTERS & SETTERS ---------------- */
+
     public Long getId() {
         return id;
+    }
+
+    public Long getBatchId() {
+        return batchId;
+    }
+
+    public void setBatchId(Long batchId) {
+        this.batchId = batchId;
     }
 
     public Long getUserId() {
@@ -69,4 +83,5 @@ public class CarbonRecord {
     public void setCalculationDate(LocalDate calculationDate) {
         this.calculationDate = calculationDate;
     }
+
 }
