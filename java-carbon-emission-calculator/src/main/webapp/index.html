@@ -2,58 +2,80 @@
 <html ng-app="carbonApp">
 
 <head>
-    < title>Java Carbon Emission Calculator</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="app.js"></script>
+<title>Carbon Footprint Analyzer</title>
 
-    <link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="app.js"></script>
+
+<link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
 
-<h1>Java Carbon Emission Calculator</h1>
+<!-- NAVBAR -->
 
-<div class="container">
+<nav class="navbar">
 
-    
-    <a href="/java-carbon-emission-calculator/login.html">Login</a>
-<a href="/java-carbon-emission-calculator/register.html">Register</a>
+<div class="logo">Carbon Tracker</div>
 
-    <h3>Upload Travel Excel File</h3>
+<ul class="nav-links">
+<li><a href="about.html">About</a></li>
+<li><a href="conctact.html">Contact</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="register.html">Register</a></li>
+</ul>
 
-    <input type="file" id="excelFile">
+</nav>
 
-    <br><br>
 
-    <button onclick="uploadExcel()">Upload Excel</button>
+<!-- HERO SECTION -->
 
-    <h3 id="result"></h3>
+<section class="hero">
 
+<h1>🌍 Carbon Footprint Analyzer</h1>
+
+<p class="tagline">
+Measure • Analyze • Reduce Emissions
+</p>
+
+<p class="description">
+The Carbon Footprint Analyzer is a web-based system designed to calculate
+and analyze carbon emissions generated from transportation activities.
+Users can upload travel data in CSV or Excel format, and the system
+automatically calculates CO₂ emissions using predefined emission factors.
+</p>
+
+<div class="hero-buttons">
+<a href="register.html" class="btn register">Register</a>
+<a href="login.html" class="btn login">Login</a>
 </div>
 
-<script>
+</section>
 
-function uploadExcel(){
 
-    var file = document.getElementById("excelFile").files[0];
 
-    var formData = new FormData();
+<!-- FEATURES -->
 
-    formData.append("file", file);
+<section class="features">
 
-    fetch("uploadExcel",{
-        method:"POST",
-        body:formData
-    })
-    .then(response => response.text())
-    .then(data=>{
-        document.getElementById("result").innerText=data;
-    });
+<div class="feature-card">
+<h3>Carbon Analysis</h3>
+<p>Automatically calculate carbon emissions from uploaded travel data.</p>
+</div>
 
-}
+<div class="feature-card">
+<h3> Sustainability Insights</h3>
+<p>Understand environmental impact and identify ways to reduce emissions.</p>
+</div>
 
-</script>
+<div class="feature-card">
+<h3> Smart Reports</h3>
+<p>View emission analytics through tables and charts in the dashboard.</p>
+</div>
+
+</section>
 
 </body>
 </html>

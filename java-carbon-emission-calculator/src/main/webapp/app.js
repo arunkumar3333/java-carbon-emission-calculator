@@ -109,7 +109,7 @@ $http.get("/java-carbon-emission-calculator/dashboard/total")
 $scope.totalEmission = response.data.total;
 
 document.getElementById("totalEmission").innerText =
-"Total Carbon Emission = " + $scope.totalEmission + " kg CO2";
+"Total Combined Carbon Emission = " + $scope.totalEmission + " kg CO2";
 
 });
 
@@ -214,10 +214,11 @@ backgroundColor:[
 
 
 /* Combined CSV emission */
+var combinedChartInstance = null;
+
 $scope.loadCombinedEmission = function(){
 
 $http.get("/java-carbon-emission-calculator/dashboard/combined")
-
 .then(function(response){
 
 $scope.combinedData = response.data;
@@ -226,40 +227,39 @@ var labels = [];
 var values = [];
 
 for(var i=0;i<response.data.length;i++){
-
 labels.push(response.data[i].vehicle);
 values.push(response.data[i].emission);
-
 }
 
 var ctx = document.getElementById("combinedChart").getContext("2d");
 
-new Chart(ctx,{
+/* destroy previous chart if exists */
+
+if(combinedChartInstance){
+combinedChartInstance.destroy();
+}
+
+combinedChartInstance = new Chart(ctx,{
 type:"pie",
 data:{
 labels:labels,
 datasets:[{
 data:values,
 backgroundColor:[
-"#ff6384",   // Bike
-"#36a2eb",   // Bus
-"#ffce56",   // Truck
-"#4bc0c0",   // Auto
-"#9966ff",   // Van
-"#ff9f40"    // Car
+"#ff6384",
+"#36a2eb",
+"#ffce56",
+"#4bc0c0",
+"#9966ff",
+"#ff9f40"
 ]
 }]
-},
-options:{
-responsive:true,
-maintainAspectRatio:false
 }
 });
 
 });
 
 };
-
 
 /* auto load when page opens */
 $scope.loadCategoryEmission();

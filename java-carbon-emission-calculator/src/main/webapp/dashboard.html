@@ -27,21 +27,37 @@ Logout</li>
 </button>
     </ul>
 </nav>
-<h2>Carbon Footprint Dashboard</h2>
+<div class="footprint-container">
 
-<hr>
+    <div class="footprint-card">
 
-<h3>Upload Excel File</h3>
+        <h1 class="dashboard-title">Carbon Footprint Dashboard</h1>
 
-<input type="file" id="excelFile">
+       
 
-<br><br>
+        <h3 class="upload-title">Upload Excel File</h3>
 
-<button ng-click="uploadExcel()">Calculate Carbon Emission</button>
+        <div class="upload-row">
 
-<p>{{result}}</p>
+            <input type="file" id="excelFile" class="file-input">
 
-<hr>
+            <button class="upload-btn" ng-click="uploadExcel()">
+                Calculate Carbon Emission
+            </button>
+
+        </div>
+
+        <p class="total-emission">
+           {{result}}
+            
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
 
 <p id="totalEmission">Loading total emission...</p>
 

@@ -3,32 +3,36 @@
 
 <head>
 
-<title>Login</title>
+<meta charset="UTF-8">
+<title>User Login</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 <script src="app.js"></script>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="login.css">
 
 </head>
 
 <body ng-controller="LoginController">
 
-<h2>User Login</h2>
+<div class="login-container">
 
-<input type="text" ng-model="email" placeholder="Email">
+<h2>Welcome Back</h2>
 
-<br><br>
+<input type="email" ng-model="email" placeholder="Email Address">
 
 <input type="password" ng-model="password" placeholder="Password">
 
-<br><br>
 <button type="button" ng-click="login()">Login</button>
 
-<h3 ng-if="message">{{message}}</h3>
+<p class="message" ng-if="message">{{message}}</p>
 
-
+<p class="register-link">
+Don't have an account?
 <a href="register.html">Create Account</a>
+</p>
+
+</div>
 
 </body>
 </html>
