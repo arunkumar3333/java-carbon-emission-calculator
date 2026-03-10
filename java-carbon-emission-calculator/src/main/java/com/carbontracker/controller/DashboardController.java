@@ -2,7 +2,6 @@ package com.carbontracker.controller;
 
 import com.carbontracker.repository.CarbonRepository;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -13,13 +12,22 @@ import java.util.List;
 public class DashboardController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
 
+        /* SESSION CHECK */
+        HttpSession session = request.getSession(false);
+
+        if(session == null || session.getAttribute("userId") == null){
+            response.sendRedirect("login.html");
+            return;
+        }
+        Long userId = (Long) session.getAttribute("userId");
         CarbonRepository repo = new CarbonRepository();
 
-        List<Object[]> data = repo.getCategoryWiseEmission();
+        List<Object[]> data = repo.getLatestBatchEmission(userId);
 
         response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
 
         PrintWriter out = response.getWriter();
 
@@ -37,5 +45,9 @@ public class DashboardController extends HttpServlet {
         }
 
         out.print("]");
+
+        out.flush();
+        
+        
     }
 }

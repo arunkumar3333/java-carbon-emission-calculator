@@ -2,23 +2,38 @@
 <html ng-app="carbonApp">
 
 <head>
+
 <title>Carbon Emission Dashboard</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 <script src="app.js"></script>
+<link rel="stylesheet" href="dashboard.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<link rel="stylesheet" href="style.css">
 
 </head>
-<body ng-app="carbonApp" ng-controller="DashboardController" ng-init="loadCategoryEmission()">
 
+<body ng-controller="DashboardController" ng-init="loadCategoryEmission()">
+<!-- Navigation Menu -->
+<nav class="navbar">
+    <div class="logo">Carbon Tracker</div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button ng-click="logout()" >
+Logout</li>
+</button>
+    </ul>
+</nav>
 <h2>Carbon Footprint Dashboard</h2>
 
 <hr>
 
 <h3>Upload Excel File</h3>
 
-<input type="file" file-model="excelFile">
+<input type="file" id="excelFile">
 
 <br><br>
 
@@ -26,24 +41,93 @@
 
 <p>{{result}}</p>
 
+<hr>
 
-<body ng-controller="DashboardController" ng-init="loadCategoryEmission()">
+<p id="totalEmission">Loading total emission...</p>
 
-<h3>Category Wise Carbon Emission</h3>
 
-<table border="1">
-<tr>
-<th>Vehicle Type</th>
-<th>Total CO2</th>
-</tr>
+<!-- ===================== -->
+<!-- Latest CSV Table -->
+<!-- ===================== -->
 
-<tr ng-repeat="c in categoryData">
-<td>{{c.vehicle}}</td>
-<td>{{c.emission}}</td>
-</tr>
+<div class="dashboard-container">
 
-</table>
+<!-- ================= Latest CSV ================= -->
 
+<div class="dashboard-row">
+
+    <div class="dashboard-table">
+        <h3>Latest CSV Emission</h3>
+
+        <table>
+            <tr>
+                <th>Vehicle</th>
+                <th>Emission</th>
+            </tr>
+
+            <tr ng-repeat="c in categoryData">
+                <td>{{c.vehicle}}</td>
+                <td>{{c.emission}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="dashboard-chart">
+        <h3>Latest CSV Emission Chart</h3>
+        <canvas id="csvChart"></canvas>
+    </div>
+
+</div>
+
+
+<!-- ================= Combined CSV ================= -->
+
+<div class="dashboard-row">
+
+    <div class="dashboard-table">
+        <h3>Combined CSV Emission</h3>
+
+        <table>
+            <tr>
+                <th>Vehicle</th>
+                <th>Emission</th>
+            </tr>
+
+            <tr ng-repeat="c in combinedData">
+                <td>{{c.vehicle}}</td>
+                <td>{{c.emission}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="dashboard-chart">
+        <h3>Combined Carbon Emission Chart</h3>
+        <canvas id="combinedChart"></canvas>
+    </div>
+
+</div>
+
+</div>
+<br>
+
+<!-- ===================== -->
+<!-- Pie Chart Latest CSV -->
+<!-- ===================== -->
+
+
+
+
+<script>
+
+fetch("dashboard/total")
+.then(response => response.json())
+.then(data => {
+    document.getElementById("totalEmission").innerText =
+        "Total Carbon Emission = " + data.total + " kg CO2";
+})
+.catch(error => console.error(error));
+
+</script>
 </body>
-</body>
+
 </html>

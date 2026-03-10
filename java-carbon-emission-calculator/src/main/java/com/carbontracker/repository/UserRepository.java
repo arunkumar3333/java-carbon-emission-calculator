@@ -50,7 +50,7 @@ public class UserRepository {
         return user;
     }
 
-    public boolean loginUser(String email, String password) {
+    public User loginUser(String email, String password) {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -64,6 +64,6 @@ public class UserRepository {
 
         session.close();
 
-        return user != null;
+        return user;
     }
 }
