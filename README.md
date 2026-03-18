@@ -7,7 +7,7 @@ Users can upload Excel files, and the system processes the data to compute CO₂
 
 📸 Screenshots
 Login Page
-<img width="1892" height="862" alt="image" src="https://github.com/user-attachments/assets/df33d796-aaf0-4a71-8ee9-2414823c78f9" />
+<img width="1892" height="862" alt="image" src="https://github.com/user-attachments/assets/516192be-e68d-4d4c-b27a-5c76374beed7" />
 
 Dashboard
 
