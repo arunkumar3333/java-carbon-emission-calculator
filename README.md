@@ -7,19 +7,20 @@ Users can upload Excel files, and the system processes the data to compute CO₂
 
 📸 Screenshots
 
-Home
+Home Page
+
 <img width="1846" height="840" alt="image" src="https://github.com/user-attachments/assets/b247c36a-09a6-47e6-a987-9c6b8ab8930c" />
 
 Login Page
+
 <img width="1822" height="828" alt="image" src="https://github.com/user-attachments/assets/7cce33bd-98af-432b-8df8-f49f98bcc337" />
 
-Register
+Register Page
 <img width="1710" height="807" alt="image" src="https://github.com/user-attachments/assets/510e6ab7-d53b-4a39-98bc-2d4a8bc0a050" />
 
-Dashboard
+Dashboard Page
 <img width="1892" height="862" alt="image" src="https://github.com/user-attachments/assets/bf7d7dca-1896-4cf6-991e-c65f21d843d2" />
 
-Excel Upload
 
 ⚙️ Tech Stack
 Frontend: HTML5, CSS3, JavaScript, AngularJS, Chart.js
