@@ -81,7 +81,7 @@ The main purpose of this project is to:
 ---
 ## Screenshots   ✅ (ADD HERE)
 
-
+![alt text](download.jpg)
 ## Project Modules
 
 ### 1. Registration Module
