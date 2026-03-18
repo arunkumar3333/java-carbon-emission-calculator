@@ -6,6 +6,7 @@ A full-stack web application that calculates carbon emissions based on transport
 Users can upload Excel files, and the system processes the data to compute CO₂ emissions and display results on an interactive dashboard.
 
 📸 Screenshots
+
 Home
 <img width="1846" height="840" alt="image" src="https://github.com/user-attachments/assets/b247c36a-09a6-47e6-a987-9c6b8ab8930c" />
 
