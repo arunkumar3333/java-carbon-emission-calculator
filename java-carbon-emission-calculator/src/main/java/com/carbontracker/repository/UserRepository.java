@@ -13,18 +13,19 @@ public class UserRepository {
         Session session = null;
         Transaction tx = null;
 
-        try {
+        try {  //to  prevent the application from crashing we use exception, like data not inserted
+        	
 
-            session = HibernateUtil.getSessionFactory().openSession();
-            tx = session.beginTransaction();
+            session = HibernateUtil.getSessionFactory().openSession();  // it opens a connection to db
+            tx = session.beginTransaction();	// Stared
+            
+            session.save(user); // preparing statements to insert
 
-            session.save(user);
-
-            tx.commit();
+            tx.commit(); // stores data permanently
             return true;
 
         } catch (Exception e) {
-
+        		
             if (tx != null) {
                 tx.rollback();
             }

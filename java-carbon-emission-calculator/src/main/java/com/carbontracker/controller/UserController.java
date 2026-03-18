@@ -26,22 +26,22 @@ public class UserController extends HttpServlet {
                REGISTER
             ========================= */
             if ("register".equals(action)) {
-
+            		
                 String name = request.getParameter("name");
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
                 String country = request.getParameter("country");
-
-                User user = new User();
+// object creation
+                User user = new User();  //which is used to insert data into db
                 user.setName(name);
                 user.setEmail(email);
                 user.setPassword(password);
                 user.setCountry(country);
-
-                boolean saved = repo.saveUser(user);
+// created new variable called saved which is type of boolean
+                boolean saved = repo.saveUser(user); // to save the new user into db
 
                 if (saved) {
-                    response.getWriter().println("User Registered Successfully");
+                    response.getWriter().println("User Registered Successfully");  // its sends the response to app.js
                 } else {
                     response.getWriter().println("Registration Failed");
                 }

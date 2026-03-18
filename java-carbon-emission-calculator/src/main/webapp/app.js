@@ -56,7 +56,7 @@ var data = "action=register"
          + "&country=" + encodeURIComponent($scope.country);
 
 $http({
-method:"POST",
+method:"POST",   // sends request to backend
 url:"/java-carbon-emission-calculator/user",
 data:data,
 headers:{
@@ -64,9 +64,10 @@ headers:{
 }
 
 }).then(function(response){
-
+// receives the response from the backend(UserController)
 $scope.message=response.data;
 
+// compares the recieved data
 if(response.data.trim()==="User Registered Successfully"){
 setTimeout(function(){
 window.location.href="login.html";
@@ -136,7 +137,7 @@ window.location.href="index.html";
 
 /* Upload Excel */
 $scope.uploadExcel = function(){
-
+// reads 
 var file = document.getElementById("excelFile").files[0];
 
 if(!file){
@@ -144,7 +145,7 @@ $scope.result="Please select a file";
 return;
 }
 
-var formData = new FormData();
+var formData = new FormData();//converts into into form data so the file sent correctly
 formData.append("file", file);
 
 $http.post("/java-carbon-emission-calculator/uploadExcel", formData, {
