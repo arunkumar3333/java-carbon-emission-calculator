@@ -1,12 +1,10 @@
-📌 Project Title
+Project Title
 Carbon Emission Calculator
-
-📄 Description
+Description
 A full-stack web application that calculates carbon emissions based on transportation data.
 Users can upload Excel files, and the system processes the data to compute CO₂ emissions and display results on an interactive dashboard.
 
 📸 Screenshots
-
 Home Page
 
 <img width="1846" height="840" alt="image" src="https://github.com/user-attachments/assets/b247c36a-09a6-47e6-a987-9c6b8ab8930c" />
@@ -22,7 +20,7 @@ Dashboard Page
 <img width="1892" height="862" alt="image" src="https://github.com/user-attachments/assets/bf7d7dca-1896-4cf6-991e-c65f21d843d2" />
 
 
-⚙️ Tech Stack
+Tech Stack
 Frontend: HTML5, CSS3, JavaScript, AngularJS, Chart.js
 
 Backend: Java Servlets, Hibernate
@@ -33,7 +31,7 @@ Libraries: Apache POI
 
 Server: Apache Tomcat
 
-🚀 How to Run
+How to Run
 1. Clone the Repository
 git clone https://github.com/arunkumar3333/java-carbon-emission-calculator.git
 2. Import Project
@@ -62,89 +60,13 @@ ATS-friendly ✅
 
 Recruiter-friendly ✅
 
-Easy to understand ✅
-
-If you want, I can make a next-level README (with badges, icons, and design like top GitHub projects) 🔥
-
-
-
-
-
-
-
-
-give complete readme file
-
-ChatGPT11:58 AM
-Here is your complete professional README.md (clean + detailed + ready for GitHub) 👇
-
-# 🌱 Carbon Emission Calculator
-
-A full-stack web application that calculates and tracks carbon emissions generated from transportation activities.  
-Users can upload Excel files, and the system processes the data to compute CO₂ emissions and display results through an interactive dashboard.
-
----
-
-## 📌 Project Description
-
-The **Carbon Emission Calculator** helps users understand their carbon footprint based on travel data.  
-It allows users to upload transportation details via Excel and automatically calculates emissions using predefined factors.
-
-This project demonstrates full-stack development using Java, AngularJS, and MySQL.
-
----
-
-## 🎯 Purpose
-
-- Measure carbon emissions from transportation  
-- Provide environmental awareness  
-- Automate emission calculation using Excel data  
-- Demonstrate real-world full-stack development  
-
----
-
-## 📸 Screenshots
-
-### 🔐 Login Page  
-![Login](screenshots/login.png)
-
-### 📝 Register Page  
-![Register](screenshots/register.png)
-
-### 📊 Dashboard  
-![Dashboard](screenshots/dashboard.png)
-
-### 📂 Excel Upload  
-![Upload](screenshots/upload.png)
-
----
-
-## ⚙️ Tech Stack
-
-### Frontend
-- HTML5  
-- CSS3  
-- JavaScript  
-- AngularJS  
-- Chart.js  
-
-### Backend
-- Java  
-- Java Servlets  
-- Hibernate  
-
-### Database
-- MySQL  
-
-### Libraries / Tools
+Easy to understand ✅### Libraries / Tools
 - Apache POI (Excel processing)  
 - Eclipse IDE  
 - XAMPP / MySQL Workbench  
 
 ### Server
 - Apache Tomcat  
-
----
 
 ## 🚀 Features
 
@@ -157,8 +79,6 @@ This project demonstrates full-stack development using Java, AngularJS, and MySQ
 - Category-wise Analysis  
 - Logout Functionality  
 
----
-
 ## 🧠 How It Works
 
 1. User registers and logs in  
@@ -168,13 +88,8 @@ This project demonstrates full-stack development using Java, AngularJS, and MySQ
 5. Stores data in MySQL  
 6. Displays results in dashboard with charts  
 
----
-
 ## 📊 Carbon Calculation Formula
 Carbon Emission = Distance × Emission Factor × Number of Vehicles
-
-
----
 
 ## 🗂️ Project Structure
 java-carbon-emission-calculator/
@@ -198,9 +113,6 @@ java-carbon-emission-calculator/
 ├── hibernate.cfg.xml
 └── pom.xml
 
-
----
-
 ## 🛠️ Prerequisites
 
 Make sure you have installed:
@@ -210,8 +122,6 @@ Make sure you have installed:
 - Apache Tomcat  
 - MySQL Server  
 - MySQL Workbench  
-
----
 
 ## 🧑‍💻 How to Run
 
