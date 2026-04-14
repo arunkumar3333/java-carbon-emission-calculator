@@ -94,23 +94,41 @@ Carbon Emission = Distance × Emission Factor × Number of Vehicles
 ## 🗂️ Project Structure
 java-carbon-emission-calculator/
 │
+
 ├── src/
+
 │ ├── controller/
+
 │ ├── entity/
+
 │ ├── repository/
+
 │ ├── service/
+
 │ └── util/
+
 │
+
 ├── webapp/
+
 │ ├── index.html
+
 │ ├── login.html
+
 │ ├── register.html
+
 │ ├── dashboard.html
+
 │ ├── app.js
+
 │ └── style.css
+
 │
+
 ├── screenshots/
+
 ├── hibernate.cfg.xml
+
 └── pom.xml
 
 ## 🛠️ Prerequisites
